@@ -1,0 +1,36 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "modules-left": ["hyprland/workspaces", "custom/kitty", "custom/media"],
+    "modules-center": [],
+    "modules-right": ["pulseaudio", "network", "battery", "clock"],
+    "custom/kitty": {
+        "format": " Kitty Terminal",
+        "tooltip": false
+    },
+    "custom/media": {
+        "exec": "playerctl metadata --format '{{title}} - {{artist}}'",
+        "interval": 5,
+        "format": " {}",
+        "tooltip": false
+    },
+    "clock": {
+        "format": " %a %b %d  %I:%M %p"
+    },
+    "battery": {
+        "format": " {capacity}%",
+        "tooltip": false
+    },
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "  {ipaddr}",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "  {volume}%",
+        "format-muted": "  Muted",
+        "tooltip": false
+    }
+}
+
