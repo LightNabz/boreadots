@@ -41,7 +41,7 @@ chmod +x install_dotfiles.sh
 ./install_arch.sh
 ```
 
-2.2. For Arch Fedora based
+2.2. For Fedora based
 ```sh
 chmod +x install_dotfiles.sh
 ./install_fedora.sh
