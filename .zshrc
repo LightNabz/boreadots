@@ -117,3 +117,5 @@ source $ZSH/oh-my-zsh.sh
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+export PATH=$PATH:/home/dasnabz/.spicetify

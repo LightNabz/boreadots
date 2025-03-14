@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Rofi settings menu with icons
-chosen=$(echo -e " Change Wallpaper\n Reload Waybar\n Game Mode" | rofi -dmenu -p "Settings" -theme-str 'listview { lines: 10; }' -icon-theme "Papirus" -show-icons)
+chosen=$(echo -e " Change Wallpaper\n Reload Waybar\n Waybar Themes\n Game Mode" | rofi -dmenu -p "Settings" -theme-str 'listview { lines: 10; }' -icon-theme "Papirus" -show-icons)
 
 case $chosen in
     " Change Wallpaper")
@@ -12,10 +12,14 @@ case $chosen in
         # Reload the Waybar script
         ~/.config/hypr/scripts/waybar-reload.sh
         ;;
+    " Waybar Themes")
+        # Change waybar themes ;3
+        ~/.config/waybar/scripts/switch-waybar-theme.sh
+        ;;
     " Game Mode")
         # Literally just disable some shi
         ~/.config/hypr/scripts/game-toggle.sh
-        ;; 
+        ;;
     *)
         # Exit if nothing is chosen
         exit 1
