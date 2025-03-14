@@ -1,4 +1,8 @@
-# Dotfiles Installation Guide
+# Boreadots Dotfiles Installation Guide
+
+<p align="center">
+  <img src="image.png" alt="Description of Image" width="400" style="border-radius: 15px;">
+</p>
 
 ## Introduction
 Welcome to boreadots dotfiles repository! This setup contains my personalized configurations for various applications and tools. You can use it to replicate my environment or as a base for your own. This dotfiles is heavily themed in Catppuccin Mocha.
