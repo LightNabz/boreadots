@@ -1,0 +1,156 @@
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+
+/* Darker Color for Shading OwO */
+@define-color rosewaterdark #4b3a35;
+@define-color flamingodark #4a2f2f;
+@define-color pinkdark #4b2f3c;
+@define-color mauvedark #8a6bc3;
+@define-color reddark #9e4f66;
+@define-color maroondark #9c6678;
+@define-color peachdark #9f5a3f;
+@define-color yellowdark #8f7c4b;
+@define-color greendark #5f9f74;
+@define-color tealdark #5b9a9c;
+@define-color skydark #5b8b92;
+@define-color sapphiredark #5b90a3;
+@define-color bluedark #5e73a1;
+@define-color lavendardark #8b8ec9;
+@define-color textdark #8b8e9b;
+@define-color subtext1dark #7e8bb9;
+@define-color subtext0dark #656e86;
+@define-color overlay2dark #646d7e;
+@define-color overlay1dark #5a6277;
+@define-color overlay0dark #4a5366;
+@define-color surface2dark #3f4758;
+@define-color surface1dark #32363f;
+@define-color surface0dark #222631;
+@define-color basedark #141418;
+@define-color mantledark #140f10;
+@define-color crustdark #0e0e1a;
+
+* {
+  border: none;
+  border-radius: 10px;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+  padding: 0 6px;
+  color: @text;
+}
+
+/* Left ;3 */
+
+#custom-launcher {
+  background: transparent;
+}
+
+window#waybar {
+  background: @mantle;
+  border-bottom: 2px solid @mauve;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: @text;
+  background: transparent;
+}
+
+#workspaces button.active {
+  background: rgba(203, 166, 247, 0.8);
+  color: @lavender;
+  border-bottom: 4px solid @mauvedark;
+}
+
+/* Middle */
+
+#clock {
+  color: @text;
+  padding: 0 14px;
+  margin: 0 5px; 
+  font-weight: bold;
+}
+
+#calendar {
+  background: @mantle;
+}
+
+/* Right uwu */
+
+#battery {
+  background: @green;
+  color: @text;
+  border-bottom: 4px solid @greendark;
+  margin: 0 4px;
+  border-radius: 8px;
+  padding: 0px 10px;
+}
+
+#network {
+  background: rgba(137, 180, 250, 0.8);
+  color: @text;
+  border-bottom: 4px solid @bluedark;
+  margin: 0 4px;
+  border-radius: 8px;
+  padding: 0px 10px;
+}
+
+#pulseaudio {
+  background: rgba(203, 166, 247, 0.8);
+  color: @text;
+  border-bottom: 4px solid @mauvedark;
+  margin: 0 4px;
+  border-radius: 8px;
+  padding: 0px 10px;
+}
+
+#tray {
+  background: transparent;
+  margin: 0 5px;
+  padding: 0px 12px;
+}
+
+#custom-logout {
+  background: rgba(243, 139, 168, 0.8);
+  color: @text;
+  border-bottom: 4px solid @reddark;
+  padding: 0 10px;
+  margin: 0 4px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#custom-menu {
+  background: rgba(250, 179, 135, 0.8);
+  color: @text;
+  border-bottom: 4px solid @peachdark;
+  padding: 0 10px;
+  margin: 0 4px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+

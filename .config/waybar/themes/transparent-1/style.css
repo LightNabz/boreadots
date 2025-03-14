@@ -1,0 +1,125 @@
+/* ====== Color Definitions ====== */
+/* Catppuccin Mocha Palette */
+@define-color rosewater rgb(245, 224, 220);
+@define-color flamingo rgb(242, 205, 205);
+@define-color pink rgb(245, 194, 231);
+@define-color mauve rgb(203, 166, 247);
+@define-color red rgb(243, 139, 168);
+@define-color maroon rgb(235, 160, 172);
+@define-color peach rgb(250, 179, 135);
+@define-color yellow rgb(249, 226, 175);
+@define-color green rgb(166, 227, 161);
+@define-color teal rgb(148, 226, 213);
+@define-color sky rgb(137, 220, 235);
+@define-color sapphire rgb(116, 199, 236);
+@define-color blue rgb(137, 180, 250);
+@define-color lavender rgb(180, 190, 254);
+@define-color text rgb(205, 214, 244);
+@define-color subtext1 rgb(186, 194, 222);
+@define-color subtext0 rgb(166, 173, 200);
+@define-color overlay2 rgb(147, 153, 178);
+@define-color overlay1 rgb(127, 132, 156);
+@define-color overlay0 rgb(108, 112, 134);
+@define-color surface2 rgb(88, 91, 112);
+@define-color surface1 rgb(69, 71, 90);
+@define-color surface0 rgb(49, 50, 68);
+@define-color base rgb(30, 30, 46);
+@define-color mantle rgb(24, 24, 37);
+@define-color crust rgb(17, 17, 27);
+
+/* Background Transparency */
+@define-color bg rgba(30, 30, 46, 0.8);
+
+/* ====== Global Styles ====== */
+* {
+    font-family: "FiraCode Nerd Font", "Fira Code", sans-serif;
+    font-size: 12px;
+    border-radius: 10px;
+    min-height: 20px;
+}
+
+/* ====== Waybar Styling ====== */
+window#waybar {
+    background: transparent; 
+    color: @text;
+}
+
+/* ====== Workspaces (Left Module) ====== */
+#workspaces {
+    background: @bg;
+    margin: 5px;
+    border-radius: 8px;
+}
+#workspaces button {
+    padding: 5px 10px;
+    color: @text;
+    border-radius: 8px;
+    margin: 3px;
+}
+#workspaces button.active {
+    background: @mauve;
+    color: @base;
+}
+
+/* ====== General Styling for Widgets ====== */
+#mpris, 
+#tray, 
+#clock, 
+#custom-launcher, 
+#battery, 
+#network, 
+#pulseaudio, 
+#custom-menu, 
+#custom-logout {
+    padding: 8px 16px;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+/* ====== Individual Element Colors ====== */
+
+/* Left Modules */
+#mpris {
+    color: @lavender;
+    background: @bg;
+}
+#custom-launcher {
+    color: @blue;
+    background: @bg;
+}
+
+/* Middle Modules */
+#custom-activity {
+    background: transparent;
+}
+
+/* Right Modules */
+#tray {
+    color: @red;
+    background: @bg;
+}
+#pulseaudio {
+    color: @maroon;
+    background: @bg;
+}
+#network {
+    color: @peach;
+    background: @bg;
+}
+#battery {
+    color: @yellow;
+    background: @bg;
+}
+#clock {
+    color: @green;
+    background: @bg;
+}
+#custom-menu {
+    color: @teal;
+    background: @bg;
+}
+#custom-logout {
+    color: @blue;
+    background: @bg;
+}
+
