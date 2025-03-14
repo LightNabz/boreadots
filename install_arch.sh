@@ -30,8 +30,7 @@ backup_and_copy ".config/kitty"
 backup_and_copy ".config/nvim"
 backup_and_copy ".config/waybar"
 backup_and_copy ".config/rofi"
-backup_and_copy ".config/sway"
-backup_and_copy ".config/swaylock"
+backup_and_copy ".config/wlogout"
 backup_and_copy ".config/qt5ct"
 backup_and_copy ".config/gtk-3.0"
 backup_and_copy ".config/gtk-4.0"
@@ -48,7 +47,7 @@ read -rp "❓ Do you want to install the required packages? (y/n): " INSTALL_PAC
 
 if [[ "$INSTALL_PACKAGES" =~ ^[Yy]$ ]]; then
     echo "📦 Installing required packages..."
-    sudo pacman -S --needed hyprland kitty neovim waybar sway swaylock qt5ct gtk3 gtk4 htop nwg-look zsh bash || echo "⚠️ Some packages may not have been installed!"
+    sudo pacman -S --needed hyprland kitty neovim waybar wlogout hyprlock qt5ct gtk3 gtk4 htop nwg-look zsh bash || echo "⚠️ Some packages may not have been installed!"
 
     # Install rofi-wayland from AUR
     if command -v yay &>/dev/null; then
