@@ -1,7 +1,7 @@
 # Dotfiles Installation Guide
 
 ## Introduction
-Welcome to my dotfiles repository! This setup contains my personalized configurations for various applications and tools. You can use it to replicate my environment or as a base for your own.
+Welcome to boreadots dotfiles repository! This setup contains my personalized configurations for various applications and tools. You can use it to replicate my environment or as a base for your own. This dotfiles is heavily themed in Catppuccin Mocha.
 
 ## Features
 - Preconfigured settings for:
@@ -64,8 +64,5 @@ You can manually restore files from there.
 
 ## Contributing
 Feel free to fork this repository, submit pull requests, or suggest improvements!
-
-## License
-This project is open-source and free to use. Enjoy customizing your setup!
 
 
