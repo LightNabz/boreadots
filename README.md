@@ -34,10 +34,19 @@ cd ~/.dotfiles
 
 ### 2. Run the Installation Script
 Make the script executable and run it:
+
+2.1. For Arch Linux based
 ```sh
 chmod +x install_dotfiles.sh
-./install_dotfiles.sh
+./install_arch.sh
 ```
+
+2.2. For Arch Fedora based
+```sh
+chmod +x install_dotfiles.sh
+./install_fedora.sh
+```
+
 This will:
 - Backup your existing configurations
 - Copy my dotfiles to the appropriate locations
