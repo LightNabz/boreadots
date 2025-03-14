@@ -43,3 +43,22 @@ backup_and_copy ".bashrc"
 echo "✅ Dotfiles installation complete!"
 echo "🛠 Your old configs are backed up at: $BACKUP_DIR"
 
+# Ask if user wants to install required packages
+read -rp "❓ Do you want to install the required packages? (y/n): " INSTALL_PACKAGES
+
+if [[ "$INSTALL_PACKAGES" =~ ^[Yy]$ ]]; then
+    echo "📦 Installing required packages..."
+    sudo pacman -S --needed hyprland kitty neovim waybar sway swaylock qt5ct gtk3 gtk4 htop nwg-look zsh bash || echo "⚠️ Some packages may not have been installed!"
+
+    # Install rofi-wayland from AUR
+    if command -v yay &>/dev/null; then
+        echo "📦 Installing rofi-wayland from AUR..."
+        yay -S --needed rofi-wayland || echo "⚠️ Failed to install rofi-wayland!"
+    else
+        echo "⚠️ yay is not installed. Install yay manually and run 'yay -S rofi-wayland'"
+    fi
+else
+    echo "⏩ Skipping package installation!"
+fi
+
+echo "🚀 All done! Enjoy your new setup~"
