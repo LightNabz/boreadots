@@ -1,81 +1,97 @@
-# Boreadots Dotfiles Installation Guide
+# Boreadots Dotfiles
 
 <p align="center">
-  <img src="image.png" alt="Description of Image" width="400" style="border-radius: 15px;">
+  <img src="image.png" alt="Boreadots Preview" width="400" style="border-radius: 15px;">
 </p>
 
-## Introduction
-Welcome to boreadots dotfiles repository! This setup contains my personalized configurations for various applications and tools. You can use it to replicate my environment or as a base for your own. This dotfiles is heavily themed in Catppuccin Mocha.
+## Overview
 
-## Features
-- Preconfigured settings for:
-  - **Hyprland** (hypr)
-  - **Kitty** (kitty)
-  - **Neovim** (nvim)
-  - **Waybar** (waybar)
-  - **Rofi** (rofi, installed via `yay` as `rofi-wayland`)
-  - **Sway** (sway, swaylock)
-  - **Qt5ct & GTK** (qt5ct, gtk-3.0, gtk-4.0)
-  - **HTOP** (htop)
-  - **Nwg-look** (nwg-look)
-  - **Shell configs** (zshrc, bashrc)
-- Automatic backup of existing dotfiles before installation
-- Simple and flexible installation script
-- Automatic package installation after dotfiles are copied
+Welcome to **boreadots**! This repository contains my personal (messy) dotfiles and configurations for a modern Linux desktop, themed with Catppuccin Mocha. Use these as a base for your own setup or to quickly replicate my environment.
+
+## What's Included?
+
+All configuration files and package lists are in the `.config/` directory. Preconfigured apps and tools include:
+
+- **Hyprland** (hypr)
+- **Kitty** (kitty)
+- **Neovim** (nvim)
+- **Waybar** (waybar)
+- **Rofi** (rofi-wayland)
+- **Sway** (sway, swaylock)
+- **Qt5ct & GTK** (qt5ct, gtk-3.0, gtk-4.0)
+- **HTOP** (htop)
+- **Nwg-look** (nwg-look)
+- **Shell configs** (zshrc, bashrc)
 
 ## Installation
 
 ### 1. Clone the Repository
-You can clone this repository anywhere, but a common location is `~/.dotfiles`:
+
+You can clone this repository anywhere (commonly `~/.dotfiles`):
+
 ```sh
-git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
+git clone https://github.com/LightNabz/boredots.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
-### 2. Run the Installation Script
-Make the script executable and run it:
+### 2. Installation Script
 
-2.1. For Arch Linux based
+> **Note:**  
+> The installation script is **not finished yet**. Fedora and Arch Linux use different package repositories, so the script is still being developed for cross-distro support.
+
+For now, you can manually copy the configs from `.config/` to your home directory and install the required packages listed below.
+
+## Required Packages
+
+Install these packages using your distro’s package manager:
+
+- hyprland
+- kitty
+- neovim
+- waybar
+- sway
+- swaylock
+- qt5ct
+- htop
+- nwg-look
+- rofi-wayland (AUR for Arch, COPR or build for Fedora)
+- zsh, bash
+
+**Arch Linux example:**
 ```sh
-chmod +x install_dotfiles.sh
-./install_arch.sh
-```
-
-2.2. For Fedora based
-```sh
-chmod +x install_dotfiles.sh
-./install_fedora.sh
-```
-
-This will:
-- Backup your existing configurations
-- Copy my dotfiles to the appropriate locations
-- Install required packages automatically
-
-### 3. Required Packages
-After copying dotfiles, the script will ask if you want to install the necessary packages. If you're using Arch Linux, it will install:
-```sh
-sudo pacman -S hyprland kitty neovim waybar sway swaylock qt5ct htop nwg-look
+sudo pacman -S hyprland kitty neovim waybar sway swaylock qt5ct htop nwg-look zsh bash
 yay -S rofi-wayland
 ```
-If you don't have `yay`, you can install it manually first:
+
+**Fedora example:**
 ```sh
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg -si
+sudo dnf install hyprland kitty neovim waybar sway swaylock qt5ct htop nwg-look zsh bash
+# For rofi-wayland, see https://github.com/lbonn/rofi for Fedora instructions
 ```
 
-## Custom Installation Path
-If you cloned the repository to a different location, don’t worry! The script will automatically detect where it is and install from there.
+## Backups
 
-## Uninstall / Restore Backup
-If you ever want to revert to your previous settings, your old configurations are stored in a timestamped backup folder:
+Before replacing any configs, make sure to back up your existing dotfiles. You can do this manually:
+
 ```sh
-ls ~/.dotfiles_backup_*
+cp -r ~/.config ~/.config_backup_$(date +%Y%m%d)
 ```
-You can manually restore files from there.
+
+## Uninstall / Restore
+
+To revert, restore your backup:
+
+```sh
+cp -r ~/.config_backup_YYYYMMDD/* ~/.config/
+```
 
 ## Contributing
-Feel free to fork this repository, submit pull requests, or suggest improvements!
+
+Feel free to contribute~
+
+---
+**Note:**
+- Waybar theme like on the Screenshot above is "transparent-2"
+- The install script will be updated later (mending fesnuk daripada ngurus ini)
 
 

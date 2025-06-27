@@ -6,9 +6,9 @@ declare -A ICONS=(
     ["firefox"]=" "       # Firefox
     ["chromium"]=" "      # Chromium-based browsers
     ["google-chrome"]=" "
-    ["brave-browser"]=" "
-    ["zen"]=" "
-    ["libreoffice"]=" "   # LibreOffice
+    ["brave-browser"]="󰖟 "
+    ["zen"]="󰖟 "
+    ["libreoffice"]="🗎 "   # LibreOffice
     ["kitty"]=" "         # Kitty Terminal
     ["alacritty"]=" "     # Alacritty Terminal
     ["wezterm"]=" "       # WezTerm
@@ -19,7 +19,7 @@ declare -A ICONS=(
     ["nautilus"]=" "      # Nautilus File Manager
     ["nemo"]=" "          # Nemo File Manager
     ["mpv"]=" "           # MPV Media Player
-    ["vlc"]="嗢 "          # VLC
+    ["vlc"]="󰕼 "          # VLC
 )
 
 while true; do
@@ -37,7 +37,7 @@ while true; do
     fi
 
     # Get icon (default: generic window icon)
-    ICON=${ICONS[$CLASS]:-""}
+    ICON=${ICONS[$CLASS]:-" "}
 
     # Format output with icon
     if [[ -z "$TITLE" ]]; then

@@ -1,0 +1,139 @@
+/* ====== Catppuccin Mocha Palette ====== */
+@define-color rosewater rgb(245, 224, 220);
+@define-color flamingo rgb(242, 205, 205);
+@define-color pink rgb(245, 194, 231);
+@define-color mauve rgb(203, 166, 247);
+@define-color red rgb(243, 139, 168);
+@define-color maroon rgb(235, 160, 172);
+@define-color peach rgb(250, 179, 135);
+@define-color yellow rgb(249, 226, 175);
+@define-color green rgb(166, 227, 161);
+@define-color teal rgb(148, 226, 213);
+@define-color sky rgb(137, 220, 235);
+@define-color sapphire rgb(116, 199, 236);
+@define-color blue rgb(137, 180, 250);
+@define-color lavender rgb(180, 190, 254);
+@define-color text rgb(205, 214, 244);
+@define-color base rgb(30, 30, 46);
+@define-color bg rgba(30, 30, 46, 0.8);
+@define-color hover rgba(255, 255, 255, 0.05);
+
+/* ====== Global Styles ====== */
+* {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+}
+
+/* ====== Entire Bar ====== */
+ #waybar {
+    background-color: transparent;
+}
+
+#waybar > box {
+    border-radius: 8px;
+    margin: 8px 8px 8px 8px;
+    background-color: @bg; 
+    box-shadow: 1 1 3 1px #151515;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* ====== Universal Modules Style ====== */
+#custom-menu,
+#custom-logout,
+#tray,
+#pulseaudio,
+#network,
+#battery,
+#clock,
+#custom-activity,
+#mpris,
+#workspaces {
+    padding: 4px 6px;
+    margin: 0 3px;
+    background: transparent;
+    color: @text;
+    transition: background 0.2s ease;
+}
+
+#custom-launcher {
+    padding: 4px 10px;
+    margin: 0 3px;
+    background: transparent;
+    color: @text;
+    transition: background 0.2s ease;
+}
+
+#custom-divider {
+    padding: 0px 0px;
+    margin: 0 0px;
+}
+
+#custom-launcher:hover,
+#custom-menu:hover,
+#custom-logout:hover,
+#tray:hover,
+#pulseaudio:hover,
+#network:hover,
+#battery:hover,
+#clock:hover,
+#mpris:hover {
+    background: @hover;
+    border-radius: 6px;
+}
+
+/* ====== Workspaces ====== */
+#workspaces {
+    margin: 0 5px;
+}
+#workspaces button {
+    padding: 4px 8px;
+    margin: 0 2px;
+    background: transparent;
+    color: @text;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+#workspaces button.active {
+    background: @mauve;
+    color: @base;
+    border-bottom: 4px solid #8a6bc3;
+}
+
+
+/* ====== Specific Color Highlights ====== */
+#clock {
+    color: @lavender;
+}
+#pulseaudio {
+    color: @peach;
+}
+#network {
+    color: @sky;
+}
+#battery {
+    color: @yellow;
+}
+#tray {
+    color: @red;
+}
+#mpris {
+    color: @green;
+}
+#custom-launcher {
+    color: @blue;
+}
+#custom-menu {
+    color: @teal;
+}
+#custom-logout {
+    color: @pink;
+}
+#custom-divider {
+    color: rgb(88, 91, 112);
+}

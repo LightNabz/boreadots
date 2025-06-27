@@ -15,18 +15,19 @@ require("lazy").setup({
     { "neovim/nvim-lspconfig" },
     { "hrsh7th/nvim-cmp" },
     { "kyazdani42/nvim-tree.lua" },
-    { "nvim-lualine/lualine.nvim" }
+    { "nvim-lualine/lualine.nvim" },
+    { "lewis6991/gitsigns.nvim" }
 })
 
--- Catppuccin Theme Setup
+-- Catppuccin Theme Setup (Lualine FIXED)
 require("catppuccin").setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
     integrations = {
         cmp = true,
         gitsigns = true,
         nvimtree = true,
-        treesitter = true,
-        -- lualine = true,
+        treesitter = true
+        -- lualine = true, -- 🚨 Removed to prevent the error
     }
 })
 
@@ -51,7 +52,7 @@ require("lualine").setup {
 -- NvimTree setup
 require("nvim-tree").setup{}
 
--- NvimSetNumber
-vim.opt.number = true  -- Enable line numbers
-vim.opt.relativenumber = true  -- Optional: Enables relative line numbers
+-- GitSigns setup
+require("gitsigns").setup()
 
+vim.o.number = true

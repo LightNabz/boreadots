@@ -2,8 +2,8 @@
 
 CONFIG="$HOME/.config/hypr/hyprpaper.conf"
 DEFAULT_WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
-WALLPAPER_DIR_FILE="$HOME/.config/hypr/wallpaper_dir"  # Store last used directory
-RELOAD_SCRIPT="$HOME/.config/hypr/scripts/wpreload.sh"  # Hyprpaper reload script
+WALLPAPER_DIR_FILE="$HOME/.config/hypr/wallpaper_dir"
+RELOAD_SCRIPT="$HOME/.config/hypr/scripts/wpreload.sh"
 
 # Load last used wallpaper directory or default
 if [[ -f "$WALLPAPER_DIR_FILE" ]]; then
@@ -17,29 +17,53 @@ pick_wallpaper_dir() {
     NEW_DIR=$(zenity --file-selection --directory --title="Select Wallpaper Directory")
     
     if [[ -n "$NEW_DIR" ]]; then
-        echo "$NEW_DIR" > "$WALLPAPER_DIR_FILE"  # Save new directory
+        echo "$NEW_DIR" > "$WALLPAPER_DIR_FILE"
         WALLPAPER_DIR="$NEW_DIR"
     else
-        exit 0  # Abort if no selection
+        exit 0
     fi
 }
 
 # Rofi menu
-CHOICE=$(echo -e "Change Wallpaper Directory\nSelect Wallpaper\nRefresh Hyprpaper" | rofi -dmenu -i -p "Choose Action" -no-fixed-num-lines -theme-str 'inputbar { enabled: false; }')
+CHOICE=$(echo -e "Change Wallpaper Directory\nSelect Wallpaper\nSelect Random Wallpaper\nRefresh Hyprpaper" | rofi -dmenu -i -p "Choose Action" -no-fixed-num-lines -theme-str 'inputbar { enabled: false; }')
 
 # Handle user choice
 case "$CHOICE" in
     "Change Wallpaper Directory")
-        pick_wallpaper_dir  # Select directory
-        ;;  # Continue to wallpaper selection automatically
+        pick_wallpaper_dir
+        ;;
     "Refresh Hyprpaper")
         bash "$RELOAD_SCRIPT"
+        exit 0
+        ;;
+    "Select Random Wallpaper")
+        # Get current wallpaper (from config, line 2)
+        CURRENT_WALLPAPER=$(awk -F ', ' '/^wallpaper/ {print $2}' "$CONFIG")
+
+        # Get all wallpapers excluding the current one
+        WALLPAPER_LIST=$(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" \) | grep -vFx "$CURRENT_WALLPAPER")
+
+        # If only one wallpaper exists (or none after exclusion)
+        if [[ -z "$WALLPAPER_LIST" ]]; then
+            echo "No alternative wallpapers found in $WALLPAPER_DIR"
+            exit 1
+        fi
+
+        RANDOM_WALLPAPER=$(echo "$WALLPAPER_LIST" | shuf -n 1)
+
+        PRIMARY_MONITOR=$(hyprctl monitors | awk 'NR==1 {print $2}')
+
+        echo "preload = $RANDOM_WALLPAPER" > "$CONFIG"
+        echo "wallpaper = $PRIMARY_MONITOR, $RANDOM_WALLPAPER" >> "$CONFIG"
+
+        bash "$RELOAD_SCRIPT"
+        echo "Random wallpaper set: $RANDOM_WALLPAPER"
         exit 0
         ;;
     "Select Wallpaper")
         ;;
     *)
-        exit 0  # Abort if nothing selected
+        exit 0
         ;;
 esac
 
@@ -52,7 +76,6 @@ fi
 # Get list of wallpapers
 WALLPAPERS=$(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" \) -exec basename {} \;)
 
-# Check if wallpapers exist
 if [[ -z "$WALLPAPERS" ]]; then
     echo "No wallpapers found in $WALLPAPER_DIR"
     exit 1
@@ -63,28 +86,21 @@ SELECTED_WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "
     echo -en "$(basename "$file")\0icon\x1f$file\n"
 done | rofi -dmenu -i -p "Select Wallpaper")
 
-# Check if user canceled selection
 if [[ -z "$SELECTED_WALLPAPER" ]]; then
     echo "No wallpaper selected."
     exit 1
 fi
 
-# Reconstruct full path
 SELECTED_WALLPAPER_PATH=$(realpath "$WALLPAPER_DIR/$SELECTED_WALLPAPER")
 
-# Get primary monitor dynamically
 PRIMARY_MONITOR=$(hyprctl monitors | awk 'NR==1 {print $2}')
 
-# Update hyprpaper.conf
 echo "preload = $SELECTED_WALLPAPER_PATH" > "$CONFIG"
 echo "wallpaper = $PRIMARY_MONITOR, $SELECTED_WALLPAPER_PATH" >> "$CONFIG"
 
-# Reload hyprpaper
 bash "$RELOAD_SCRIPT"
 
 echo "Wallpaper updated to: $SELECTED_WALLPAPER_PATH"
-
-
 
 
 

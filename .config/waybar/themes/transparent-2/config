@@ -3,9 +3,9 @@
   "position": "top",
   "height": 20,
   "margin": "8 8 0 8",
-  "modules-left": ["custom/launcher", "hyprland/workspaces", "mpris"],
+  "modules-left": ["custom/launcher", "custom/divider", "hyprland/workspaces", "custom/divider", "mpris"],
   "modules-center": ["custom/activity"],
-  "modules-right": ["tray", "pulseaudio", "network", "battery", "clock", "custom/menu", "custom/logout"],
+  "modules-right": ["tray", "custom/divider", "pulseaudio", "network", "battery", "custom/divider", "clock", "custom/divider", "custom/menu","custom/logout"],
 
   "hyprland/workspaces": {
     "format": "{id}",
@@ -30,7 +30,7 @@
     "format": " {artist} - {title}",
     "format-paused": " {artist} - {title}",
     "format-stopped": " No media playing",
-    "max-length": 20,
+    "max-length": 36,
     "tooltip": false
   },
 
@@ -66,10 +66,13 @@
   },
 
   "network": {
-    "format-wifi": "󰖩   {essid} ({signalStrength}%)",
+    "format-wifi": "󰖩   ({signalStrength}%)",
+    "format-alt-wifi": "󰖩   {ssid} ({signalStrength}%)",
     "format-ethernet": "󰈀   Wired",
-    "format-disconnected": "󰖪   Offline",
+    "format-disconnected": "󰖪   Off",
+    "on-click": "toggle",
     "on-click-right": "~/.config/hypr/scripts/toggle-nm-editor.sh",
+    "tooltip-format": "<tt><small>{essid}</small></tt>",
     "tooltip": true
   },
 
@@ -81,8 +84,14 @@
   },
 
   "tray": {
-    "icon-size": 18,
+    "icon-size": 16,
     "spacing": 12
+  },
+
+  "custom/divider": {
+    "format": " | ",
+    "interval": 0,
+    "tooltip": false
   },
 
   "custom/logout": {
@@ -121,7 +130,6 @@
     "exec": "~/.config/waybar/scripts/activity.sh",
     "restart-interval": "never",
     "tooltip": true,
-    "max-lenght": 30,
+    "max-length": 48
   }
 }
-

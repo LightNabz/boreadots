@@ -32,7 +32,8 @@
 
 /* ====== Global Styles ====== */
 * {
-    font-family: "FiraCode Nerd Font", "Fira Code", sans-serif;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: bold;
     font-size: 12px;
     border-radius: 10px;
     min-height: 20px;
